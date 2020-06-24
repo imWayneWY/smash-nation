@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
 
-function App() {
+const TestProduct = gql`
+  query TestProduct($id: ID!) {
+    node(id: $id) {
+      ... on Product {
+        title
+        id
+        vendor
+        onlineStoreUrl
+        priceRange {
+          maxVariantPrice {
+            amount
+          }
+          minVariantPrice{
+            amount
+          }
+        }
+        descriptionHtml
+      }
+    }
+  }
+`
+
+
+function Test({data}) {
+  console.log(data)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+        data.node
+        ? <div dangerouslySetInnerHTML={{__html: data.node.descriptionHtml}} />
+        : <div>Loading</div>
+      }
     </div>
   );
 }
+
+const App = graphql(TestProduct, {
+  options: {variables: {id: btoa("gid://shopify/Product/3499529175133")}}
+})(Test)
 
 export default App;
