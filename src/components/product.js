@@ -12,11 +12,11 @@ const root = css`
 const Product = ({product}) => {
   console.log(product)
   return (
-    <div css={root} >
+    <a css={root} href={product.onlineStoreUrl} >
       <img css={css`width: 100%`} src={product.images.edges[0].node.originalSrc} />
       <h6>{product.title}</h6>
       <p>Price from {product.priceRange.minVariantPrice.amount}</p>
-    </div>
+    </a>
   )
 }
 
