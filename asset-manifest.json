@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/smash-nation/static/css/main.d1b05096.chunk.css",
+    "main.js": "/smash-nation/static/js/main.354b8640.chunk.js",
+    "main.js.map": "/smash-nation/static/js/main.354b8640.chunk.js.map",
+    "runtime-main.js": "/smash-nation/static/js/runtime-main.d8006ae4.js",
+    "runtime-main.js.map": "/smash-nation/static/js/runtime-main.d8006ae4.js.map",
+    "static/js/2.f22ea228.chunk.js": "/smash-nation/static/js/2.f22ea228.chunk.js",
+    "static/js/2.f22ea228.chunk.js.map": "/smash-nation/static/js/2.f22ea228.chunk.js.map",
+    "index.html": "/smash-nation/index.html",
+    "precache-manifest.d2139b4355b9f700fbdbd56211fd0dcc.js": "/smash-nation/precache-manifest.d2139b4355b9f700fbdbd56211fd0dcc.js",
+    "service-worker.js": "/smash-nation/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/smash-nation/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.f22ea228.chunk.js.LICENSE.txt": "/smash-nation/static/js/2.f22ea228.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d8006ae4.js",
+    "static/js/2.f22ea228.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.354b8640.chunk.js"
+  ]
+}
