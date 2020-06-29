@@ -17,7 +17,7 @@ const logo = css`
 
 const NavBar = () => (
   <div css={navBar}>
-    <img css={logo} src="https://cdn.shopify.com/s/files/1/0043/9802/2749/files/png_file1_150x.png?v=1591749437" />
+    <a href="/"><img css={logo} src="https://cdn.shopify.com/s/files/1/0043/9802/2749/files/png_file1_150x.png?v=1591749437" /></a>
   </div>
 )
 
