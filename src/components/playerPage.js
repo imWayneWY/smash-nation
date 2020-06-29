@@ -3,14 +3,14 @@ import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import Loading from './loading';
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx, css, keyframes } from '@emotion/core';
 import Product from './product';
 
 const GetPlayerCollection = gql`
   query GetPlayerCollection($handle: String!) {
     collectionByHandle(handle: $handle) {
       title
-      descriptionHtml
+      description
       image {
         originalSrc
       }
@@ -44,23 +44,43 @@ const GetPlayerCollection = gql`
 const root=css`
   display: flex;
   width: 100vw;
-  height: 100vh;
+`
+const colorChanging = keyframes`
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
 `
 
 const playerWrapper  =css`
-  width: 30vw;
-  height: 100%;
+  width: 40vw;
   box-sizing: border-box;
-  padding: 1vw;
+  /* padding: 20px; */
   text-align: center;
+  color: #fff;
+`
+
+const playerCard = css`
+  background-image: linear-gradient(125deg, #2c3e50, #27ae60, #2980b9, #e74c3c, #8e44ad);
+  background-size: 400%;
+  animation: ${colorChanging} 15s infinite;
+  padding: 30px;
 `
 
 const products = css`
   width: 70vw;
-  display: flex;
-  flex-wrap: wrap;
   box-sizing: border-box;
   padding: 1vw;
+`
+
+const productsList = css`
+  display: flex;
+  flex-wrap: wrap;
 `
 
 const PlayDataShow = ({collection}) => {
@@ -68,13 +88,18 @@ const PlayDataShow = ({collection}) => {
   return (
     <div css={root}>
       <div css={playerWrapper}>
-        <img css={css`width: 100%`} src={collection.image.originalSrc} />
-        <h2>{collection.title}</h2>
+        <div css={playerCard}>
+          <img css={css`width: 100%`} src={collection.image.originalSrc} />
+          <h2>{collection.title}</h2>        
+          <p>{collection.description}</p>
+        </div>
       </div>
       <div css={products}>
-        {
-          collection.products.edges.map((node, index) => <Product key={index} product={node.node} />)
-        }
+        <div css={productsList}>
+          {
+            collection.products.edges.map((node, index) => <Product key={index} product={node.node} />)
+          }        
+        </div>
       </div>
     </div>
   )
