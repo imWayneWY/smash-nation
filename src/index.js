@@ -8,6 +8,7 @@ import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 import { ApolloProvider } from 'react-apollo';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import Firebase, { FirebaseContext } from './firebaseConf';
 
 const httpLink = createHttpLink({ uri: 'https://smash-nation.myshopify.com/api/graphql' })
 
@@ -25,9 +26,11 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <FirebaseContext.Provider value={new Firebase()}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </FirebaseContext.Provider>
   </ApolloProvider>,
   document.getElementById('root')
 );

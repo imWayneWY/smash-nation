@@ -6,6 +6,7 @@ import Player from './pages/player';
 import NavBar from './components/navbar';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
+import { FirebaseContext } from './firebaseConf';
 
 const main = css`
   min-height: 100vh;
@@ -14,7 +15,9 @@ const main = css`
 `
 const App = () => (
   <div>
-    <NavBar />
+    <FirebaseContext.Consumer>
+      {firebase => <NavBar firebase={firebase} /> }
+    </FirebaseContext.Consumer>
     <div css={main}>
       <Router>
         <Switch>
