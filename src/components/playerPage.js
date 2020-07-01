@@ -1,4 +1,3 @@
-import React from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import Loading from './loading';
@@ -9,6 +8,7 @@ import Product from './product';
 const GetPlayerCollection = gql`
   query GetPlayerCollection($handle: String!) {
     collectionByHandle(handle: $handle) {
+      handle
       title
       description
       image {
@@ -84,12 +84,11 @@ const productsList = css`
 `
 
 const PlayDataShow = ({collection}) => {
-  console.log(collection)
   return (
     <div css={root}>
       <div css={playerWrapper}>
         <div css={playerCard}>
-          <img css={css`width: 100%`} src={collection.image.originalSrc} />
+          <img css={css`width: 100%;`} src={collection.image.originalSrc} alt="palyer-cover" />
           <h2>{collection.title}</h2>        
           <p>{collection.description}</p>
         </div>
@@ -97,7 +96,7 @@ const PlayDataShow = ({collection}) => {
       <div css={products}>
         <div css={productsList}>
           {
-            collection.products.edges.map((node, index) => <Product key={index} product={node.node} />)
+            collection.products.edges.map((node, index) => <Product key={index} product={node.node} width="15vw" />)
           }        
         </div>
       </div>
@@ -116,9 +115,65 @@ const PlayerPage = ({data}) => {
     </div>
   )
 }
+const cardContainer = css`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+`
 
-const PlayerWithData = graphql(GetPlayerCollection, {
+const playerCardCover = css`
+  width: 12%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+`
+const PlayDataShowCard = ({collection}) => (
+  <div>
+    <h3>{collection.title}</h3>
+    <hr />
+    <div css={cardContainer}>
+      <a css={playerCardCover} href={`/#/player/${collection.handle}`}>
+        <img css={css`width: 100%; margin-top: 20px;`} src={collection.image.originalSrc} alt="player-cover"></img>
+        <h6>{collection.title}</h6>
+      </a>
+      {
+        collection.products.edges.map((node,index)=> <Product key={index} product={node.node} width="10%" />)
+      }
+    </div>  
+  </div>
+)
+
+const card = css`
+  width: 100%;
+  height: 360px;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+`
+
+const PlayerCard = ({data}) => {
+  return(
+    <div css={card}>
+      {
+        data.loading
+        ? <Loading />
+        : <PlayDataShowCard collection = {data.collectionByHandle} />
+      }
+    </div>
+  )
+}
+
+const PlayerPageWithData = graphql(GetPlayerCollection, {
   options: ({handle}) => ({ variables: { handle } }),
 })(PlayerPage);
 
-export default PlayerWithData
+
+const PlayerCardWithData = graphql(GetPlayerCollection, {
+  options: ({handle}) => ({ variables: { handle } }),
+})(PlayerCard);
+
+
+export  { PlayerPageWithData, PlayerCardWithData }

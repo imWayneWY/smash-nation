@@ -1,4 +1,3 @@
-import React from 'react';
 /** @jsx jsx */
 import { jsx, css, keyframes } from '@emotion/core';
 const flagging = keyframes`
