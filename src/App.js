@@ -7,6 +7,8 @@ import NavBar from './components/navbar';
 import { jsx, css } from '@emotion/core';
 import { FirebaseContext } from './firebaseConf';
 import Players from './pages/players';
+import Login from './pages/login';
+import Manage from './pages/manage';
 
 const main = css`
   min-height: 100vh;
@@ -24,6 +26,8 @@ const App = () => (
           <Route exact path='/' component={Index} />
           <Route exact path='/player/:handle' component={Player} />
           <Route exact path='/players' component={Players} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/manage' component={Manage} />
         </Switch>
       </Router>    
     </div>

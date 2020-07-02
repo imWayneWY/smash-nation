@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FirebaseContext } from "./../firebaseConf";
 import { PlayerCardWithData } from "../components/playerPage";
 /** @jsx jsx */
