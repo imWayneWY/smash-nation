@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import { FirebaseContext } from "../firebaseConf";
@@ -42,7 +42,6 @@ const GoogleLogin = ({ firebase, navToHome }) => {
       .signInWithPopup(provider)
       .then((result) => {
         // let token = result.credential.accessToken;
-        let user = result.user;
         navToHome();
       })
       .catch((error) => {
