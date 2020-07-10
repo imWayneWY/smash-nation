@@ -49,7 +49,7 @@ const ManagePage = ({ firebase, history }) => {
   }
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      if (!user) {
+      if (!user || user.uid !== "4hhV3X6zRLTbpR0atmuUxwobTMg1") {
         history.push("/");
       }
     });
