@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
+import { primaryColor } from "./../constants";
 
 const playerInput = css`
   display: flex;
@@ -11,7 +12,7 @@ const input = css`
   height: 40px;
   font-size: 24px;
   border-radius: 5px;
-  border: 2px solid #ff8053;
+  border: 2px solid ${primaryColor};
   margin-top: 10px;
 `;
 
@@ -29,7 +30,7 @@ const Player = ({ player, changePlayer, index, deletePlayer }) => {
   return (
     <div css={playerInput}>
       <input onChange={onChange} css={input} value={player}></input>
-      <svg onClick={onDelete} css={icon} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2088" width="200" height="200"><path d="M512.2 64.4c-247.4 0-447.9 200.6-447.9 448s200.5 447.9 447.9 447.9 447.9-200.5 447.9-447.9-200.5-448-447.9-448z m203.5 605.9c12.5 12.5 12.5 33.1 0 45.6s-33.1 12.5-45.6 0l-158-158-158 158c-12.5 12.5-33.1 12.5-45.6 0s-12.5-33.1 0-45.6l158-158-158-158c-12.5-12.5-12.5-33.1 0-45.6s33.1-12.5 45.6 0l158 158 158-158c12.5-12.5 33.1-12.5 45.6 0s12.5 33.1 0 45.6l-158 158 158 158z" p-id="2089" fill="#ff8053"></path></svg>
+      <svg onClick={onDelete} css={icon} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2088" width="200" height="200"><path d="M512.2 64.4c-247.4 0-447.9 200.6-447.9 448s200.5 447.9 447.9 447.9 447.9-200.5 447.9-447.9-200.5-448-447.9-448z m203.5 605.9c12.5 12.5 12.5 33.1 0 45.6s-33.1 12.5-45.6 0l-158-158-158 158c-12.5 12.5-33.1 12.5-45.6 0s-12.5-33.1 0-45.6l158-158-158-158c-12.5-12.5-12.5-33.1 0-45.6s33.1-12.5 45.6 0l158 158 158-158c12.5-12.5 33.1-12.5 45.6 0s12.5 33.1 0 45.6l-158 158 158 158z" p-id="2089" fill={primaryColor}></path></svg>
     </div>
   )
 };
@@ -41,7 +42,7 @@ const root = css`
 `;
 
 const btn = css`
-  background: #ff8053;
+  background: ${primaryColor};
   color: #fff;
   text-transform: uppercase;
   border: 0 solid #fff;

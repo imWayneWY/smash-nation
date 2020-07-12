@@ -3,10 +3,11 @@ import { FirebaseContext } from "./../firebaseConf";
 import { PlayerCardWithData } from "../components/playerPage";
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
+import { primaryColor } from "../constants";
 
 const header = css`
   width: 100vw;
-  background: #FF8053;
+  background: ${primaryColor};
   color: #fff;
   text-align: center;
   padding: 10px;

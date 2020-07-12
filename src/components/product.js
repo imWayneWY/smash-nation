@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
+import { primaryColor } from '../constants';
 
 const root = css`
   margin: 20px;
@@ -10,14 +11,14 @@ const root = css`
   border-radius: 10px;
   color: #000;
   p {
-    color: #FF8053;
+    color: ${primaryColor};
     margin: 0;
   }
   h6{
     margin: 0;
   }
   &:hover {
-    box-shadow: 0 0 8px 10px #FF8053;
+    box-shadow: 0 0 8px 10px  ${primaryColor};
   }
 `
 

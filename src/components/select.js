@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
+import { primaryColor } from "../constants";
 
 const input = css`
   height: 40px;
   font-size: 24px;
   border-radius: 5px;
-  border: 2px solid #ff8053;
+  border: 2px solid ${primaryColor};
   width: 200px;
 `;
 

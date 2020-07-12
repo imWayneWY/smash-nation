@@ -3,6 +3,7 @@ import { useState } from "react";
 import { jsx, css } from "@emotion/core";
 import { FirebaseContext } from "../firebaseConf";
 import {withRouter} from "react-router-dom";
+import { primaryColor } from "../constants";
 const root = css`
   display: flex;
   flex-direction: column;
@@ -15,7 +16,7 @@ const root = css`
 const loginBtn = css`
   border-radius: 5px;
   background: #fff;
-  border: 2px solid #ff8053;
+  border: 2px solid ${primaryColor};
   width: 40vw;
   height: 40px;
   line-height: 40px;
@@ -97,7 +98,7 @@ const emailLogin = css`
 
 const input = css`
   border-radius: 5px;
-  border: 2px solid #ff8053;
+  border: 2px solid ${primaryColor};
   width: 40vw;
   height: 40px;
   margin-bottom: 5px;
@@ -112,7 +113,7 @@ const label = css`
 const btn = css`
   width: 16vw;
   height: 40px;
-  background: #ff8053;
+  background: ${primaryColor};
   border-radius: 5px;
   border: 0 solid #fff;
   font-size: 22px;

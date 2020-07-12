@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
+import { primaryColor } from "../constants";
 
 const input = css`
   height: 40px;
   font-size: 24px;
   border-radius: 5px;
-  border: 2px solid #ff8053;
+  border: 2px solid ${primaryColor};
 `;
 
 const root = css`
@@ -22,14 +23,14 @@ const title = css`
   text-transform: uppercase;
 `
 
-const Input = ({label,onChange, value, width}) => {
+const Input = ({label,onChange, value, width, numberOnly}) => {
   const setName= (e) => {
     onChange(e.currentTarget.value);
   }
   return (
   <div css={root}>
     {label && <label css={title}>{label}</label> }
-    <input onChange={setName} value={value} css={css`${input}; width: ${width}px`} />
+    <input type={numberOnly?"number":"text"} onChange={setName} value={value} css={css`${input}; width: ${width}px`} />
   </div>
   )
 }

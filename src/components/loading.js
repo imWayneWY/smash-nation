@@ -1,19 +1,20 @@
 /** @jsx jsx */
 import { jsx, css, keyframes } from '@emotion/core';
+import { primaryColor } from '../constants';
 const flagging = keyframes`
   0%{
-    color: #FF8053;
+    color: ${primaryColor};
     transform: transLateY(0);
     margin-left: 0;
   }
   25%{
-    color: #FF8053;
+    color: ${primaryColor};
     transform: translateY(-15px);
     margin-left: 10px;
     text-shadow: 0 15px 5px rgba(0,0,0,1);
   }
   100%{
-    color: #FF8053;
+    color: ${primaryColor};
     transform: translateY(0);
   }
 `
@@ -24,7 +25,7 @@ const flagLoading = css`
   transform: translate(-50%, -50%);
   span {
     font-size: 2em;
-    color: #FF8053;
+    color: ${primaryColor};
     display: inline-block;
     animation: ${flagging} 2s infinite;
     &:nth-of-type(1) {
