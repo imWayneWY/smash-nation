@@ -79,6 +79,7 @@ const NavBar = ({ firebase }) => {
       <a href="/"><img css={logo} src="https://cdn.shopify.com/s/files/1/0043/9802/2749/files/png_file1_150x.png?v=1591749437" alt="logo" /></a>
       <a css={links} href="/">Home</a>
       <a css={links} href="/#/players">Players</a>
+      <a css={links} href="/#/places">Places</a>
       {
         user && user.uid==="4hhV3X6zRLTbpR0atmuUxwobTMg1"
         && 

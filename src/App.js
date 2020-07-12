@@ -2,6 +2,7 @@ import './App.css';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Index from './pages/index';
 import Player from './pages/player';
+import Places from './pages/places';
 import NavBar from './components/navbar';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
@@ -27,9 +28,10 @@ const App = () => (
           <Route exact path='/' component={Index} />
           <Route exact path='/player/:handle' component={Player} />
           <Route exact path='/players' component={Players} />
+          <Route exact path='/places' component={Places} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/manage' component={Manage} />
-          <Route exact path='/add-place' component={AddPlace} />
+          <Route exact path='/add' component={AddPlace} />
         </Switch>
       </Router>    
     </div>

@@ -14,7 +14,7 @@ const root = css`
 `
 
 const title = css`
-  width: 120px;
+  width: 160px;
   height: 40px;
   line-height: 40px;
   margin-right: 20px;
@@ -28,7 +28,7 @@ const Input = ({label,onChange, value, width}) => {
   }
   return (
   <div css={root}>
-    <label css={title}>{label}</label>
+    {label && <label css={title}>{label}</label> }
     <input onChange={setName} value={value} css={css`${input}; width: ${width}px`} />
   </div>
   )
