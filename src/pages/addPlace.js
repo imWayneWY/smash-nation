@@ -4,6 +4,7 @@ import Input from '../components/input';
 import { jsx, css } from "@emotion/core";
 import Select from '../components/select';
 import Title from '../components/title';
+import Btn from '../components/btn';
 
 const root = css`
   display: flex;
@@ -28,6 +29,7 @@ const AddPlace = () => {
   const [tel, setTel] = useState('')
   const [postcode, setPostcode] = useState('')
   const [cost, setCost] = useState("")
+  const [courtNum, setCourtNum] = useState("")
   return (
     <div css={root}>
       <Title title="required information" />
@@ -39,6 +41,11 @@ const AddPlace = () => {
       <Input width={200} value={postcode} label="Postal code" onChange={(newPostcode) => setPostcode(newPostcode)} />
       <div css={css`height: 20px`} />
       <div css={inlineContainer}><Input numberOnly={true} width={200} value={cost} label="cost" onChange={(newCost) => setCost(newCost)} /><span>/hour</span></div>
+      <Input numberOnly={true} width={200} value={courtNum} label="Court Number" onChange={(newVal) => setCourtNum(newVal)} />
+      <div css={css`height: 20px`} />
+      <div css={css`width: 2000px; margin: 20px 0;`}>
+        <Btn text="submit"/>
+      </div>
     </div>
   )
 }

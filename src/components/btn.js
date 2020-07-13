@@ -3,6 +3,7 @@ import { jsx, css } from "@emotion/core";
 import { primaryColor } from "./../constants";
 
 const btn=css`
+  width: auto;
   height: 46px;
   border-radius: 5px;
   border: 2px solid ${primaryColor};
