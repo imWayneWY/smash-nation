@@ -30,7 +30,7 @@ const Select = ({onChange, value}) => {
   }
   return (
     <div css={root}>
-      <label css={title}>City</label>
+      <label css={title}>Province</label>
       <select onChange={setName} value={value} css={css`${input}`}>
         <option value="NL">NL</option>
         <option value="PE">PE</option>
