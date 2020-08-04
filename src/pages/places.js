@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import Input from '../components/input';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Btn from '../components/btn';
+import { FirebaseContext } from '../firebaseConf';
 
 const root = css`
   min-height: 600px;
@@ -17,8 +18,12 @@ const searchContainer = css`
   margin: 20px 0;
 `
 
-const Places = () => {
+const PlacesPage = ({ firebase }) => {
   const [keyword, setKeyword] = useState('')
+
+  useEffect(()=>{
+    console.log("keyword", keyword)
+  },[keyword])
 
   return (
     <div css={root}>
@@ -31,4 +36,9 @@ const Places = () => {
   )
 }
 
+const Places = () => (
+  <FirebaseContext.Consumer>
+    {firebase => <PlacesPage firebase={firebase} />}
+  </FirebaseContext.Consumer>
+)
 export default Places;
